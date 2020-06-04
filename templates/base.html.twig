@@ -81,7 +81,7 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Custom Utilities:</h6>
-            <a class="collapse-item" href="">Expediteurs</a>
+            <a class="collapse-item" href=" {{ path('expediteur_index') }} ">Expediteurs</a>
             <a class="collapse-item" href="">Destinataires</a>
             
           </div>
@@ -116,13 +116,14 @@
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAgence" aria-expanded="true" aria-controls="collapseAgence">
           <i class="fas fa-fw fa-hotel"></i>
-          <span>Agence</span>
+          <span>Agences</span>
         </a>
         <div id="collapseAgence" class="collapse" aria-labelledby="headingAgence" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Custom Components:</h6>
-            <a class="collapse-item" href="">Agent</a>
-            <a class="collapse-item" href="">Agences</a>
+            <a class="collapse-item" href=" {{ path('pays_index') }} ">Pays</a>
+            <a class="collapse-item" href="">Agents</a>
+            <a class="collapse-item" href=" {{ path('agence_index') }} ">Agences</a>
           </div>
         </div>
       </li>
@@ -136,7 +137,7 @@
         <div id="collapsePaiement" class="collapse" aria-labelledby="headingPaiement" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Custom Utilities:</h6>
-            <a class="collapse-item" href="">Currency</a>
+            <a class="collapse-item" href=" {{ path('currency_index') }} ">Currency</a>
             <a class="collapse-item" href="">Mode de Paiement</a>
             
           </div>

@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Expediteur{% endblock %}
+
+{% block body %}
+    <h1>Expediteur</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ expediteur.id }}</td>
+            </tr>
+            <tr>
+                <th>IdExp</th>
+                <td>{{ expediteur.idExp }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ expediteur.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ expediteur.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                <td>{{ expediteur.ville }}</td>
+            </tr>
+            <tr>
+                <th>Pays</th>
+                <td>{{ expediteur.pays }}</td>
+            </tr>
+            <tr>
+                <th>Phone</th>
+                <td>{{ expediteur.phone }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ expediteur.email }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ expediteur.createdAt ? expediteur.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('expediteur_index') }}">back to list</a>
+
+    <a href="{{ path('expediteur_edit', {'id': expediteur.id}) }}">edit</a>
+
+    {{ include('expediteur/_delete_form.html.twig') }}
+{% endblock %}

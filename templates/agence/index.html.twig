@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Agence index{% endblock %}
+
+{% block monTitre %}
+    <div>
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Agences</h1>
+        </div>
+    </div>
+{% endblock %}
+
+{% block body %}
+    <h1>Agence index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Agence</th>
+                <th>IdAgence</th>
+                <th>Gérant</th>
+                <th>Téléphone</th>
+                <th>Email</th>
+                <th>Créer</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for agence in agences %}
+            <tr>
+                <td>{{ agence.id }}</td>
+                <td>{{ agence.nomAgence }}</td>
+                <td>{{ agence.idAgence }}</td>
+                <td>{{ agence.contactNameAgence }}</td>
+                <td>{{ agence.phoneAgence }}</td>
+                <td>{{ agence.emailAgence }}</td>
+                <td>{{ agence.createdAt ? agence.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('agence_show', {'id': agence.id}) }}">show</a>
+                    <a href="{{ path('agence_edit', {'id': agence.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('agence_new') }}">Create new</a>
+{% endblock %}

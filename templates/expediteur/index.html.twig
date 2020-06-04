@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Expediteur index{% endblock %}
+
+{% block monTitre %}
+    <div>
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Expediteurs</h1>
+        </div>
+    </div>
+    
+{% endblock %}
+
+{% block body %}
+    <h1>Expediteur index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>IdExp</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Ville</th>
+                <th>Pays</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>CreatedAt</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for expediteur in expediteurs %}
+            <tr>
+                <td>{{ expediteur.id }}</td>
+                <td>{{ expediteur.idExp }}</td>
+                <td>{{ expediteur.nom }}</td>
+                <td>{{ expediteur.prenom }}</td>
+                <td>{{ expediteur.ville }}</td>
+                <td>{{ expediteur.pays }}</td>
+                <td>{{ expediteur.phone }}</td>
+                <td>{{ expediteur.email }}</td>
+                <td>{{ expediteur.createdAt ? expediteur.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('expediteur_show', {'id': expediteur.id}) }}">show</a>
+                    <a href="{{ path('expediteur_edit', {'id': expediteur.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('expediteur_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Agence{% endblock %}
+
+{% block body %}
+    <h1>Agence</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ agence.id }}</td>
+            </tr>
+            <tr>
+                <th>NomAgence</th>
+                <td>{{ agence.nomAgence }}</td>
+            </tr>
+            <tr>
+                <th>IdAgence</th>
+                <td>{{ agence.idAgence }}</td>
+            </tr>
+            <tr>
+                <th>ContactNameAgence</th>
+                <td>{{ agence.contactNameAgence }}</td>
+            </tr>
+            <tr>
+                <th>PhoneAgence</th>
+                <td>{{ agence.phoneAgence }}</td>
+            </tr>
+            <tr>
+                <th>EmailAgence</th>
+                <td>{{ agence.emailAgence }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ agence.createdAt ? agence.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('agence_index') }}">back to list</a>
+
+    <a href="{{ path('agence_edit', {'id': agence.id}) }}">edit</a>
+
+    {{ include('agence/_delete_form.html.twig') }}
+{% endblock %}
