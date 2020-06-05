@@ -17,7 +17,6 @@ class AgenceType extends AbstractType
             ->add('contactNameAgence')
             ->add('phoneAgence')
             ->add('emailAgence')
-            ->add('createdAt')
             ->add('pays')
         ;
     }

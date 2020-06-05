@@ -40,7 +40,7 @@ class Agence
     private $phoneAgence;
 
     /**
-     * @ORM\Column(type="string", length=100, nullable=true)
+     * @ORM\Column(type="string", length=100)
      */
     private $emailAgence;
 
@@ -62,7 +62,7 @@ class Agence
     public function __construct()
     {
         $this->transfers = new ArrayCollection();
-        $this->createdAt= new \DateTime();
+        $this->createdAt = new \DateTime();
     }
 
     public function getId(): ?int
@@ -138,7 +138,6 @@ class Agence
     public function setCreatedAt(\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;
-
         return $this;
     }
 

@@ -73,11 +73,17 @@ class Pays
         return $this;
     }
 
+     /**
+     * @return string $codePays
+     */
     public function getCodePays(): ?string
     {
         return $this->codePays;
     }
 
+     /**
+     * @return string $codePays
+     */
     public function setCodePays(string $codePays): self
     {
         $this->codePays = $codePays;
@@ -106,6 +112,7 @@ class Pays
         // to show the id of the Category in the select
         // return $this->id;
     }
+
 
     /**
      * @return Collection|Currency[]

@@ -5,10 +5,10 @@ namespace App\Controller;
 use App\Entity\Agence;
 use App\Form\AgenceType;
 use App\Repository\AgenceRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * @Route("/agence")
@@ -31,14 +31,14 @@ class AgenceController extends AbstractController
     public function new(Request $request, AgenceRepository $agenceRepository): Response
     {
         $agence = new Agence();
-
-        $idAgence = $agenceRepository->getIdAgence($agence->getPays());
-        $agence->setIdAgence($idAgence);
-        
         $form = $this->createForm(AgenceType::class, $agence);
-        $form->handleRequest($request);
+        $form->handleRequest($request); 
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $idAgence = $agenceRepository->getIdAgence($agence->getPays()); 
+            $agence->setIdAgence($idAgence);
+            
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($agence);
             $entityManager->flush();
@@ -49,6 +49,7 @@ class AgenceController extends AbstractController
         return $this->render('agence/new.html.twig', [
             'agence' => $agence,
             'form' => $form->createView(),
+            'isModification' => false
         ]);
     }
 
@@ -73,12 +74,13 @@ class AgenceController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('agence_index');
+            return $this->redirectToRoute('agence_show', ["id" => $agence->getId()]);
         }
 
         return $this->render('agence/edit.html.twig', [
             'agence' => $agence,
             'form' => $form->createView(),
+            'isModification' => $agence->getId() !== null
         ]);
     }
 

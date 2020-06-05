@@ -31,11 +31,11 @@
             <tr>
                 <td>{{ agence.id }}</td>
                 <td>{{ agence.nomAgence }}</td>
-                <td>{{ agence.idAgence }}</td>
+                <td>{{ agence.idAgence|upper }}</td>
                 <td>{{ agence.contactNameAgence }}</td>
                 <td>{{ agence.phoneAgence }}</td>
                 <td>{{ agence.emailAgence }}</td>
-                <td>{{ agence.createdAt ? agence.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ agence.createdAt ? agence.createdAt|date('d-M-Y') : '' }}</td>
                 <td>
                     <a href="{{ path('agence_show', {'id': agence.id}) }}">show</a>
                     <a href="{{ path('agence_edit', {'id': agence.id}) }}">edit</a>

@@ -1,4 +1,74 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+{% if isModification %}
+
+    {{ form_start(form) }}
+        <div class="row">
+            <div class="col">
+                {{ form_row(form.idAgence, {
+                    "attr": {'readonly': 'true'},
+                    "label": "Code"})}}
+            </div>
+            <div class="col">
+                {{ form_row(form.nomAgence, {
+                    "attr": {'readonly': 'true'},
+                    "label": "Agence"})}}
+            </div>
+            <div class="col">
+                {{ form_row(form.pays, {
+                    "attr": {'readonly': 'true'},
+                    "label": "Agence"})}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                {{ form_row(form.contactNameAgence, {
+                    "label": "Gérant"})}}
+            </div>
+            <div class="col">
+                {{ form_row(form.phoneAgence, {
+                    "label": "Téléphone"})}}
+            </div>
+            <div class="col">
+                {{ form_row(form.emailAgence, {
+                    "label": "Email"})}}
+            </div>
+        </div>
+
+        <div class="row">
+            <button class="btn">{{ button_label|default('Save') }}</button>
+        </div>
+    {{ form_widget(form._token) }}
+    {{ form_end(form, {'render_rest': false}) }}
+{% else %}
+    {{ form_start(form) }}
+        <div class="row">
+            <div class="col">
+                {{ form_row(form.nomAgence, {
+                    "label": "Agence"})}}
+            </div>
+            <div class="col">
+                {{ form_row(form.pays, {
+                    "label": "Pays"})}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                {{ form_row(form.contactNameAgence, {
+                    "label": "Gérant"})}}
+            </div>
+            <div class="col">
+                {{ form_row(form.phoneAgence, {
+                    "label": "Téléphone"})}}
+            </div>
+            <div class="col">
+                {{ form_row(form.emailAgence, {
+                    "label": "Email"})}}
+            </div>
+        </div>
+
+        <div class="row">
+            <button class="btn">{{ button_label|default('Save') }}</button>
+        </div>
+    {{ form_widget(form._token) }}
+    {{ form_end(form, {'render_rest': false}) }}
+{% endif %}
+

@@ -16,8 +16,12 @@
                 <td>{{ agence.nomAgence }}</td>
             </tr>
             <tr>
+                <th>Pays</th>
+                <td>{{ agence.pays.nomPays }}</td>
+            </tr>
+            <tr>
                 <th>IdAgence</th>
-                <td>{{ agence.idAgence }}</td>
+                <td>{{ agence.idAgence|upper }}</td>
             </tr>
             <tr>
                 <th>ContactNameAgence</th>
@@ -33,7 +37,7 @@
             </tr>
             <tr>
                 <th>CreatedAt</th>
-                <td>{{ agence.createdAt ? agence.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ agence.createdAt ? agence.createdAt|date('d-M-Y') : '' }}</td>
             </tr>
         </tbody>
     </table>
